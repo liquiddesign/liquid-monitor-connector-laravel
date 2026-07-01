@@ -1,0 +1,48 @@
+{
+    "name": "liquiddesign/liquid-monitor-connector-laravel",
+    "description": "Liquid Monitor connector for Laravel applications (cron lifecycle, error reporting, read-only DB query proxy, log viewer proxy).",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": ["laravel", "liquid-monitor", "monitoring", "cron"],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/console": "^11.0|^12.0|^13.0",
+        "monolog/monolog": "^3.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidMonitorConnector\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LiquidMonitorConnector\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LiquidMonitorConnector\\LiquidMonitorServiceProvider"
+            ],
+            "aliases": {
+                "LiquidMonitor": "LiquidMonitorConnector\\Facades\\LiquidMonitor"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
