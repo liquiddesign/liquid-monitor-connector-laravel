@@ -32,6 +32,14 @@ it('serializes an exception into message/data/code', function () {
     });
 });
 
+it('sends the laravel connector type', function () {
+    Http::fake(['monitor.example/api/connector/log' => Http::response([], 201)]);
+
+    app(ErrorReporter::class)->log('Something went wrong', 'error');
+
+    Http::assertSent(fn ($request) => $request['connector_type'] === 'laravel');
+});
+
 it('flags WeakException payloads as weak', function () {
     Http::fake(['monitor.example/api/connector/log' => Http::response([], 201)]);
 

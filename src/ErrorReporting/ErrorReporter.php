@@ -51,6 +51,7 @@ final class ErrorReporter
             'weak' => $weak,
             'job_id' => $this->currentJobId($request),
             'identity' => $this->identityJson(),
+            'connector_type' => 'laravel',
         ];
 
         $url = \rtrim($this->logUrl(), '/').self::LOG_ENDPOINT;

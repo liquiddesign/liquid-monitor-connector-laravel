@@ -150,7 +150,7 @@ Nette side's optional token, not an accidental behavior difference.
 ## Version handshake
 
 Every outbound request carries `X-Connector-Version` (see `LiquidMonitorConnector\Support\Version::CURRENT`,
-currently `2.0.0` to match the backend's `supported_versions` at the time this package
+currently `2.0.1` to match the backend's `supported_versions` at the time this package
 was created). If the backend reports the version as unsupported (`426 Upgrade Required`,
 or the legacy `X-Connector-Version-Status: unsupported` header), a warning is logged via
 the default Laravel logger so an outdated connector install is visible in the app's own
